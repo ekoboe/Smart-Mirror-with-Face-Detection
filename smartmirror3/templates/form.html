@@ -1,0 +1,75 @@
+{% extends 'base.html' %}
+{% block title %} Add Face{% endblock %}
+{% block content %}
+            
+<div class="col-md-6">
+<div class="card card-primary">
+    <div class="card-header">
+      <h3 class="card-title">Face Registration</h3>
+    </div>
+          <!-- form start -->
+          <form action="/prosesForm" method="post">
+            <div class="card-body">
+              <div class="form-group">
+                <label>Name</label>
+                <input type="text" class="form-control" name="name">
+                <label>Status</label>
+                <input type="text" class="form-control" name="status">
+              </div>
+            </div>
+            <!-- /.card-body -->
+
+            <div class="card-footer">
+              <button type="submit" class="btn btn-primary">Submit</button>
+            </div>
+          </form>
+          </div> 
+    </div>
+   <div class="col-md-6">
+        <div class="card">
+          <div class="card-header">
+            <h3 class="card-title">Face Detection</h3>
+          </div>
+          <!-- /.card-header -->
+          <div class="card-body">
+            <table class="table table-bordered">
+              <thead>
+                <tr>
+                  <th style="width: 10px">#</th>
+                  <th>User</th>
+                  <th>Status</th>
+                 
+                </tr>
+              </thead>
+              <tbody>
+                {% for coba in coba %}
+                <tr>
+                  <td>{{ coba['id'] }}</td>
+                  <td>{{ coba['name'] }}</td>
+                  <td>{{ coba['status'] }}</td>
+                </tr>
+                {% endfor %}
+              </tbody>
+            </table>
+          </div>
+          <!-- /.card-body -->
+          <div class="card-footer clearfix">
+            </ul>
+          </div>
+        </div>
+        <!-- /.card -->
+    </div>
+         
+         {% with messages = get_flashed_messages(with_categories=true) %}
+            {% if messages %}
+            {% for category, message in messages %}
+            <div class="alert alert-{{ category }}" role="alert"> {{ message }}
+                <button type="button" class="close" data-dismiss="alert" aria-label="Close">
+                    <span aria-hidden="true">&times;</span>
+                </button>
+            </div>
+            {% endfor %}
+            {% endif %}
+            {% endwith %}
+          
+         {% endblock %} 

@@ -1,0 +1,33 @@
+{% extends 'base.html' %}
+{% block title %} Capture {% endblock %}
+{% block content %}
+<div class="row">
+<div class="col-sm">
+
+</div>
+<div class="col">
+<div class="card card-primary">
+    <div class="card-header">
+      <h3 class="card-title">Capture Photo</h3>
+    </div>
+            <img src="{{ url_for('video_feed2') }}">
+            <form method="post" action="{{ url_for('tasksss') }}">
+            <div class="card-footer">
+            <div class="row">
+            <div class="col"></div>
+            <div>
+              <button type="submit" class="btn btn-primary" value="Capture" name="click">Cheese</button>
+            </div>
+            <div class="col"></div>
+            </div>
+            </div>
+          </form>
+          </div>
+   
+          </div>
+      <div class="col-sm">
+      
+      </div>
+    </div>
+            
+{% endblock %}
